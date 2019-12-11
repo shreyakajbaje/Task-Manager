@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Form</title>
+        <link rel="stylesheet" type="text/css" href="D:\HCI\css\style.css" >
+    </head>
+    
+    <body>
+        <div class="container">
+            <header class="header">
+            
+               <div class="logo">
+                    <img src="todolist_logofinal.jpg">
+               </div>
+               <nav class="menu">
+                    <a href="index.html">Home</a>  
+                    <a href="task.html">Task</a>
+                    <a href="http://www.lifecompassblog.com/">Blog</a>
+                    <a class="active" href="signin.html">Sign In</a>
+                    <a href="about.html">About us</a>
+                    <a href="contact.html">Contact us</a>
+            </nav>
+           </header>
+           <article class="main">
+               <h1>Registration Form</h1>
+             <form name="registrationform" class="signin_form" onsubmit= "return formvalidation()">
+               <label for="name">User Name:</label>
+               <input type="text" placeholder="Enter Name" name="name" id="u_name"><br><br>
+
+               <label for="mobile_no">Mobile No :</label>
+               <input type="text" placeholder="Contact No" name="mobile_no" id="m_no"><br><br> 
+
+               <label for="email">Email    :</label>
+               <input type="text" placeholder="Enter Email" name="email" id="email"><br><br>
+
+               <label for="pin_code">Pin code :</label>
+               <input type="text" placeholder="Enter PinCode" name="p_no" id="p_no"><br><br>
+
+               <label for="pwd">Password :</label>
+               <input type="password" placeholder="Enter Password" name="pwd" id="pwd"><br><br>
+
+               <label for="name">Confirm Password:</label>
+               <input type="password" placeholder="Confirm Password" name="cpwd" id="cpwd"><br><br>
+
+               <input type="submit" name="button" id="s_butt" value="Submit">
+               <input type="submit" name="cancel" id="c_id" value="Cancel">
+
+             </form>   
+            </article>
+           <footer class="footer">
+               <a class="fline">Keep in touch</a>
+               <a href="https://www.instagram.com">
+               <img src="insta.jpg" class="fimg" ></a>
+               <a href="https://www.facebook.com">
+               <img src="fb.png" class="fimg"></a>
+               <a href="https://twitter.com">
+               <img src="tw.jpg" class="fimg"></a>
+               <div class="rights">
+                Copyright @ 2016 Thetaskmanager. All rights reserved.
+               </div>
+           </footer>
+           
+        </div>     
+    
+    </body>
+</html>
+
+
+<script>
+  
+   function formvalidation(){
+      var name = document.registrationform.name.value;
+      var phn_no = document.registrationform.mobile_no.value;
+      var email = document.registrationform.email.value;
+      var pswd=document.registrationform.pwd.value; 
+      var con_pswd=document.registrationform.cpwd.value; 
+      var zip_code = document.registrationform.p_no.value;
+      if(name.trim()==""){
+        alert("Invalid Name..!!");
+        return false;
+      }
+      if(phn_no.length!=10 || isNaN(phn_no)){
+        alert("Invalid Phone Number..!!");
+        return false;
+      }
+      var mail_val=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if(!mail_val.test(email))
+      {
+        alert("Invalid email!");
+        return false;
+      } 
+      if(zip_code== "" || isNaN(zip_code)|| zip_code.length != 6 )
+      {
+        alert("Invalid zip code!!");
+        return false;
+      } 
+      if(pswd.length<8)
+      {
+        alert("Enter valid password!");
+        return false;
+      }
+      if(pswd!=con_pswd)
+      {
+        alert("Doesn't match original password!");
+        return false;
+      } 
+      return true;
+  }
+</script>
